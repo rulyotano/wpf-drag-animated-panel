@@ -1,0 +1,54 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:local="clr-namespace:DraggAnimatedPanelExample" xmlns:DraggAnimatedPanel="clr-namespace:DraggAnimatedPanel;assembly=DraggAnimatedPanel" x:Name="window" mc:Ignorable="d" 
+    x:Class="DraggAnimatedPanelExample.MainWindow"
+	Title="PanelTester" Height="803" Width="1005" WindowStartupLocation="CenterScreen" WindowState="Maximized"
+	>
+    <Window.Resources>
+        <Style x:Key="ListBoxItemStyle1" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="Padding" Value="2,0,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.501,0.006" StartPoint="0.499,0.953">
+                <GradientStop Color="#FF323543" Offset="0.136"/>
+                <GradientStop Color="#FF000001" Offset="1"/>
+                <GradientStop Color="#FF1E2028" Offset="0.477"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <ListBox x:Name="listBox" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" BorderThickness="0" ItemContainerStyle="{DynamicResource ListBoxItemStyle1}" Background="{x:Null}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DraggAnimatedPanel:DraggAnimatedPanel ItemSeparation="2" ItemsHeight="140" ItemsWidth="220" SwapCommand="{Binding SwapCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <local:ContainerUserControl/>
+            <local:ContainerUserControl/>
+            <local:ContainerUserControl/>
+            <local:ContainerUserControl/>
+            <local:ContainerUserControl/>
+            <local:ContainerUserControl/>
+            <local:ContainerUserControl/>
+            <local:ContainerUserControl/>
+            <local:ContainerUserControl/>
+            <local:ContainerUserControl/>
+        </ListBox>
+    </Grid>
+</Window>
