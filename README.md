@@ -6,4 +6,4 @@ Panel for WPF that re-order elements when dragging items.
 DragAnimatedPanel is a WPF (Window Presentation Fundation) panel that lets you drag and rearrange elements of animation.
 It's developed in C#.
 
-![Alt text](dragImage.jpg?raw=true "App Print Screen")
+![Alt text](grag-animated-panel.gif?raw=true "App Print Screen")
